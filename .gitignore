@@ -1,2 +1,7 @@
 venv/
 data/
+yolov5/
+yolov5_dataset/
+test_sample/
+
+.ipynb_checkpoints/

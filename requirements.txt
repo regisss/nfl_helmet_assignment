@@ -1,5 +1,5 @@
 numpy
 opencv-python
 pandas
-
-pytest
+jupyterlab
+scikit-learn
