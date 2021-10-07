@@ -2,8 +2,12 @@
 
 ## Project setup
 
-One can setup the project with the command (preferably in a virtual environment):
+One can setup the project with the following commands (preferably in a virtual environment):
 ```bash
+git submodule update --init --recursive
+cd yolov5
+pip install -qr requirements.txt
+cd ..
 pip install -r requirements.txt
 ```
 
