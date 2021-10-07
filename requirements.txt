@@ -3,5 +3,3 @@ opencv-python
 pandas
 jupyterlab
 scikit-learn
-
-black
