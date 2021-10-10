@@ -39,7 +39,7 @@ def mp4_to_jpg(path_to_video: Path, path_to_image_folder: Path) -> None:
         i += 1
 
     video.release()
-    print(f"Read video {path_to_video}")
+    print(f"--- read video {path_to_video}")
 
 
 def write_images_from_videos(path_to_video_folder: Path, path_to_image_folder: Path) -> None:
@@ -50,12 +50,14 @@ def write_images_from_videos(path_to_video_folder: Path, path_to_image_folder: P
         path_to_image_folder (Path): path where images will be written
     """
 
+    print("Reading videos...")
     # Loop over files in the video folder
     for file in path_to_video_folder.iterdir():
         # Check if it is a mp4 file
         if file.suffix == ".mp4":
             # Write images
             mp4_to_jpg(file, path_to_image_folder)
+    print("Reading videos done.")
 
 
 if __name__ == "__main__":
