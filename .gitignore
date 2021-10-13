@@ -2,5 +2,8 @@ venv/
 data/
 yolov5_dataset/
 test_sample/
+models/
 
 .ipynb_checkpoints/
+
+*.pt

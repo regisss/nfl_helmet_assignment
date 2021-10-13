@@ -60,7 +60,8 @@ def make_training_validation_splits(path_to_images: Path, path_to_dataset_folder
         path_to_split_images = path_to_dataset_folder / "images" / split
         path_to_split_images.mkdir(parents=True, exist_ok=True)
         for filename in tqdm(files, desc=f"Copying {split} images"):
-            (path_to_split_images / filename.name).symlink_to(Path.cwd() / filename)
+            if not (path_to_split_images / filename.name).is_file():
+                (path_to_split_images / filename.name).symlink_to(Path.cwd() / filename)
 
     return training_split, validation_split
 
@@ -155,8 +156,8 @@ def build_dataset(path_to_kaggle_data: Path, seed: int = 27):
 
     # Dataset configuration
     data_yaml = dict(
-        train=f"../{path_to_dataset_folder}/images/training",
-        val=f"../{path_to_dataset_folder}/images/validation",
+        train=f"{path_to_dataset_folder}/images/training",
+        val=f"{path_to_dataset_folder}/images/validation",
         nc=len(label_to_class_id),  # number of classes in the dataset
         names=list(label_to_class_id),  # labels
     )
